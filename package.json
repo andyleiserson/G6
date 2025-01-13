@@ -7,8 +7,8 @@
     "ci": "turbo run ci --filter=!@antv/g6-site",
     "contribute": "node ./scripts/contribute.mjs",
     "dev:g6": "cd ./packages/g6 && npm run dev",
-    "postinstall": "husky install",
-    "prepare": "husky install",
+    "postinstall": "turbo build --filter=!@antv/g6-site",
+    "prepare": "turbo build --filter=!@antv/g6-site",
     "publish": "pnpm publish -r --publish-branch v5",
     "site": "pnpm -r --stream --filter=./packages/site run dev",
     "version": "changeset version && turbo version",
@@ -28,6 +28,9 @@
     "*.{json,md}": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "turbo": "^1.13.4"
   },
   "devDependencies": {
     "@antv/g-canvas": "^2.0.32",
@@ -76,7 +79,6 @@
     "svgo": "^3.3.2",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
-    "turbo": "^1.13.4",
     "typescript": "^5.7.2",
     "vite": "^5.4.11"
   },
