@@ -32,11 +32,6 @@
     "README"
   ],
   "scripts": {
-    "build": "run-p build:*",
-    "build:cjs": "rimraf ./lib && tsc --module commonjs --outDir lib -p tsconfig.build.json",
-    "build:dev:watch": "npm run build:esm -- --watch",
-    "build:esm": "rimraf ./esm && tsc --module ESNext --outDir esm -p tsconfig.build.json",
-    "build:umd": "rimraf ./dist && rollup -c && npm run size",
     "bundle-vis": "cross-env BUNDLE_VIS=1 npm run build:umd",
     "ci": "run-s lint type-check build test",
     "coverage": "jest --coverage",
